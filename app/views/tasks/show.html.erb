@@ -1,0 +1,16 @@
+<h1><%= @task.title %></h1>
+
+<%= link_to 'Edit the task', task_edit_path(@task) %>
+
+<p><%= @task.details %></p>
+<div class="completed d-flex">
+  <% @task.completed ? icon = 'fas' : icon = 'far' %>
+  <i class="<%= icon %> fa-list-alt"></i>
+  <% @task.completed ? label = 'Completed!' : label = "Not yet completed" %>
+  <p><%= label %></p>
+</div>
+
+<br>
+
+<i class="fas fa-undo-alt"></i>
+<%= link_to 'Back to list', tasks_path %>

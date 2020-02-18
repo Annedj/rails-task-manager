@@ -1,0 +1,20 @@
+<h1>My tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <% task.completed ? icon = 'fas' : icon = 'far' %>
+      <i class="<%= icon %> fa-list-alt"></i>
+      <%= link_to task.title, task_path(task) %>
+      <i class="far fa-trash-alt"><%= link_to 'Delete',
+                                              task_path(task),
+                                              method: :delete,
+                                              data: { confirm: "Are you sure?"}  %></i>
+    </li>
+  <% end %>
+</ul>
+
+<div class="d-flex">
+  <i class="far fa-calendar-check"></i>
+  <p><%= link_to 'Add a new task', tasks_new_path %></p>
+</div>
